@@ -29,3 +29,12 @@ function diamond_square(){
         console.log('square: ' + result);
     }
 }
+
+//task 3
+function isTriangleValid(){
+    const aSide = document.triangle.a.value;
+    const bSide = document.triangle.b.value;
+    const cSide = document.triangle.c.value;
+
+    ((aSide + bSide) <= cSide) ? alert('impossible'): alert('possible');
+}

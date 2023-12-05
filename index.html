@@ -99,7 +99,17 @@
                             <input id="input_2" type="number" min="0" placeholder="d2">
                             <button class="button diamondArea" onclick="diamond_square()">diamondSquare</button><br>
                             <p id="squareOutput"></p>
-                            <button class="button TextChanger" onclick="chang_text()">textChanger</button>
+                            <button class="button TextChanger" onclick="chang_text()">textChanger</button><br><br>
+                            
+                            <form name="triangle" method="get">
+                                <label for="a">a:</label><br>
+                                <input id="a" name="a" type="number"><br>
+                                <label for="b">b:</label><br>
+                                <input id="b" name="b" type="number"><br>
+                                <label for="c">c:</label><br>
+                                <input id="c" name="c" type="number">
+                            </form><br>
+                            <button class="button isTriangleValid" onclick="isTriangleValid()">Check</button>
                         </th>
                     </tr>
                     <tr style="height: 20vh;background-color: #9FB8AD;color: #fafdfe">
