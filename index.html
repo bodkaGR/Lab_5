@@ -1,0 +1,139 @@
+<!DOCTYPE html
+        Public "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+      xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://i.ibb.co/MckdXgS/icon.png">
+    <script type="text/javascript" src="scripts.js"></script>
+
+    <title>Endless Expedition</title>
+    <style type="text/css">
+        td{
+            padding: 0;
+        }
+
+        .button{
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            background: #0B63F6;
+            box-shadow: 0 10px 0 #003CC5;
+        }
+
+        .button:hover{
+            background: rgba(0, 79, 197, 0.99);
+        }
+
+        .button:active {
+            background: #003CC5;
+            box-shadow: none;
+            position: relative;
+            top: 10px;
+        }
+
+        @media  screen  and (max-width: 599.98px){}
+
+        @media screen and (max-width: 399.98px) {
+            .mobile-padding {
+                padding-right: 10px !important;
+                padding-left: 10px !important;
+            }
+
+            .mobile-col-padding {
+                padding-right: 0 !important;
+                padding-left: 0 !important;
+            }
+        }
+    </style>
+</head>
+
+<body style="Margin: 0;padding: 0;min-width: 100%;">
+<div id="primary-div" style="background-color: beige">
+    <table align="center" border="0" cellspacing="0" cellpadding="0" role="presentation"
+           style="font-family: 'Poppins',sans-serif, Arial, Helvetica;background-color: #fafdfe;
+               Margin:0;padding:0;width: 100%;">
+        <!---header--->
+        <tr style="background-color: #3F403F;height: 10vh">
+            <th id="header" align="left" style="padding-left: 1%">
+                <h2 style="color: #fafdfe">Endless Expedition</h2>
+            </th>
+            <th>
+                <a href="https://en.wikipedia.org/wiki/HTML" target="_blank" style="color: #fafdfe">Wiki HTML</a>
+                <a href="https://en.wikipedia.org/wiki/CSS" target="_blank" style="color: #fafdfe">Wiki CSS</a>
+            </th>
+        </tr>
+        <!---middle--->
+        <tr align="left" style="height: 80vh">
+            <td style="width: 80%;background-color: #CED0CE">
+                <table align="left" border="0" cellspacing="0" cellpadding="0" role="presentation"
+                       style="font-family: 'Poppins',sans-serif, Arial, Helvetica;background-color: #fafdfe;
+                           Margin:0;padding:0;width: 100%;">
+                    <tr style="height: 60vh;padding: 10px" align="left">
+                        <th style="width: 20%;background-color: #DAE2DF">
+                            <p style="margin: 3%">Ласкаво просимо до нашої подорожньої спільноти, де мрії стають реальністю.
+                                Наш сайт — це вікно до світу, де кожен мандрівник знаходить свою стежку.
+                                Ми прагнемо надихати та надавати інформацію, яка допоможе вам здійснювати подорожі,
+                                які завжди мріяли втілити в життя. У нашій колекції ви знайдете найцікавіші історії,
+                                які западають в душу та збагачують знання. Ми поглиблюємося в культури, розкриваємо секрети
+                                гармонійного подорожування та ділимося порадами для особистого росту.
+                            </p>
+                        </th>
+                        <th style="width: 80%;background-color: #fafdfe">
+                            <h2 style="margin: 1%">Ласкаво просимо до нашого світу пригод і відкриттів!</h2>
+                            <p style="margin: 1%">Мрієте про подорожі, які залишать незабутні враження та змінять ваше життя? Тоді ви потрапили за адресою.
+                                Наш сайт - це вікно до захопливого світу подорожей, де кожен крок приносить новий досвід та знайомства.
+                                Подорожі – це не лише переміщення з одного місця в інше, але й неймовірний спосіб розширити свій світогляд,
+                                пізнати інші культури, відчути емоції, які неможливо відчути в звичайному повсякденному житті.
+                                Це єдиний спосіб збагатити свою душу досвідом, а також насолодитися красою і пригодами, які приховані
+                                в різних кутках нашої планети.
+                                <br><br>
+                                
+                            </p>
+                            <p>Diamond square:</p>
+                            <input id="input_1" type="number" min="0" placeholder="d1">
+                            <input id="input_2" type="number" min="0" placeholder="d2">
+                            <button class="button diamondArea" onclick="diamond_square()">diamondSquare</button><br>
+                            <p id="squareOutput"></p>
+                            <button class="button TextChanger" onclick="chang_text()">textChanger</button>
+                        </th>
+                    </tr>
+                    <tr style="height: 20vh;background-color: #9FB8AD;color: #fafdfe">
+                        <td colspan="2">
+                            <p style="margin: 1%">Нехай наш сайт стане вашим провідником у захопливому світі подорожей. Ми віримо, що подорожі — це більше,
+                                ніж просто переміщення від одного місця до іншого. Вони є джерелом незабутніх спогадів, можливістю
+                                побачити світ у всій його різноманітності та взаємозв'язку. Під час подорожей ви не тільки долаєте
+                                відстані на карті, але також відкриваєте нові країни, культури та способи життя. Ми запрошуємо вас на
+                                захоплюючий шлях відкриттів та пригод, де кожен момент важливий. Діліться з нами вашими історіями та
+                                враженнями, а ми розкажемо вам про найкращі маршрути, найцікавіші місця та найдивовижніші пригоди.
+                                Подорожуйте, зустрічайте цікавих людей, вивчайте нові мови та культури. Ми віримо, що кожен подорожній
+                                може стати агентом позитивних змін у світі. Разом ми можемо робити нашу планету кращим місцем для всіх,
+                                де б ми не знаходилися. Приєднуйтесь до нас сьогодні, і разом ми будемо долати відстані, відкривати нові
+                                можливості та робити світ більш злагодженим та спільним для всіх подорожніх
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 20%;background-color: #475841;color: #fafdfe">
+                <p style="margin: 1%">Подорожі — це не тільки фізичні маршрути, але й шляхи самовдосконалення. Ми віримо, що кожен крок, який ви робите у світі,
+                    привносить новий смисл у ваше життя. Приєднуйтесь до нас, і разом ми робимо світ яскравішим, більш збалансованим
+                    та надихаючим місцем для всіх, хто цінує пригоди та відкриття.
+                </p>
+            </td>
+        </tr>
+        <!---footer--->
+        <tr style="height: 10vh;background-color: #7E8287;">
+            <td id="footer" colspan="2">
+                <h2 style="margin-left: 1%">2023 bodka</h2>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>
