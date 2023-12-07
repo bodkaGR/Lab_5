@@ -1,6 +1,6 @@
 //task 1
 function chang_text(){
-    var header = document.getElementById('header');
+    var header = document.getElementById('text_top_bar');
     var footer = document.getElementById('footer');
 
     var headerText = header.innerText;
@@ -36,10 +36,12 @@ function isTriangleValid(){
     const bSide = document.triangle.b.value;
     const cSide = document.triangle.c.value;
 
-    let result = ((aSide + bSide) <= cSide) ? 'impossible': 'possible';
+    let result = ((aSide + bSide) <= cSide) ? ' impossible': ' possible';
     alert(result);
 
-    localStorage.setItem(localStorage.length, result);
+    const data = {aSide, bSide, cSide};
+
+    localStorage.setItem(JSON.stringify(data), result);
     showStorageData();
 }
 
@@ -50,12 +52,22 @@ function showStorageData(){
     }
 }
 
-function question(){
-    if (localStorage.length !== 0){
+function checkForExisting(){
+    for (let i = 0; i < localStorage.length; i++){
+        let key = localStorage.key(i);
+        if (key.includes('aSide')){
+            return true;
+        }
+    }
+    return false;
+}
+
+function questionForDelete(){
+    if (checkForExisting()){
         var data = '';
         for (let i = 0; i < localStorage.length; i++){
             let key = localStorage.key(i);
-            data += `${key}` + `: ` + `${localStorage.getItem(key)}` + "\n";
+            data += `${key}` + `${localStorage.getItem(key)}` + "\n";
         }
         let userResponse = confirm("Delete data?\n" + data);
 
@@ -68,16 +80,93 @@ function question(){
     }
 }
 
-function deleteDataFromStorage(){
-    if (localStorage.length !== 0){
-        localStorage.clear();
-        alert("data was deleted");
-    }else{
-        alert("storage is empty");
+//task 4
+const leftBar = document.getElementById("left");
+
+leftBar.addEventListener('mouseover', function (){
+    leftBar.style.fontStyle = 'italic';
+});
+
+leftBar.addEventListener("mouseout", function() {
+    italicStyle();
+});
+
+const radioButtons = document.querySelectorAll('input[name="italicOption"]');
+
+function italicStyle() {
+    const italicOption = localStorage.getItem('italicOption');
+    if (italicOption === 'italicOn') {
+        leftBar.style.fontStyle = 'italic';
+    } else {
+        leftBar.style.fontStyle = 'normal';
     }
 }
 
-function hideForm(){
-    const form = document.triangle;
-    form.style.display = "none";
+italicStyle();
+
+radioButtons.forEach((radio) => {
+    radio.addEventListener('change', function() {
+        const value = this.value;
+        localStorage.setItem('italicOption', value);
+        italicStyle();
+    });
+});
+
+//task 5
+const list = document.getElementById('numberedList').getElementsByTagName('ul')[0];
+const colors = ['whiteRow', 'blackRow'];
+const listData = [];
+
+function addListData(){
+    const newRowNum = list.children.length + 1;
+    const newRowColor = colors[newRowNum % 2];
+    const newRow = createRow(newRowColor, newRowNum);
+    list.appendChild(newRow);
+    listData.push({text: newRow.textContent, color: newRowColor});
 }
+
+function createRow(newRowCol, newRowNum){
+    const newRow = document.createElement('li');
+    newRow.className = newRowCol;
+    newRow.innerHTML = `${newRowNum}- <span>Element ${newRowNum}<span>`;
+    return newRow;
+}
+
+function saveListToStorage(){
+    const listRows = list.getElementsByTagName('li');
+    listData.length = 0;
+    for(const row of listRows){
+        const rowText = row.getElementsByTagName('span')[0].textContent;
+        const rowColor = row.classList.contains('whiteRow') ? 'whiteRow': 'blackRow';
+        listData.push({text: rowText, color: rowColor});
+    }
+    localStorage.setItem('numberedList', JSON.stringify(listData));
+}
+
+function clearList(){
+    list.innerHTML = '';
+    localStorage.removeItem('numberedList');
+}
+
+function deleteLastRow(){
+    const lastRow = list.lastElementChild;
+    if(lastRow){
+        list.removeChild(lastRow);
+    }
+}
+
+function loadRowsFromStorage(){
+    const savedData = JSON.parse(localStorage.getItem('numberedList'));
+    if (savedData){
+        list.innerHTML = '';
+        savedData.forEach((row, index) => {
+            const rowColor = row.color;
+            const newRow = document.createElement('li');
+            newRow.className = rowColor;
+            newRow.innerHTML = `${index + 1}- <span>${row.text}</span>`;
+            list.appendChild(newRow);
+        })
+    }
+}
+
+loadRowsFromStorage();
