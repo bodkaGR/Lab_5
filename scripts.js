@@ -36,5 +36,48 @@ function isTriangleValid(){
     const bSide = document.triangle.b.value;
     const cSide = document.triangle.c.value;
 
-    ((aSide + bSide) <= cSide) ? alert('impossible'): alert('possible');
+    let result = ((aSide + bSide) <= cSide) ? 'impossible': 'possible';
+    alert(result);
+
+    localStorage.setItem(localStorage.length, result);
+    showStorageData();
+}
+
+function showStorageData(){
+    for(let i = 0; i < localStorage.length; i++){
+        let key = localStorage.key(i);
+        console.log(`${key}: ${localStorage.getItem(key)}`);
+    }
+}
+
+function question(){
+    if (localStorage.length !== 0){
+        var data = '';
+        for (let i = 0; i < localStorage.length; i++){
+            let key = localStorage.key(i);
+            data += `${key}` + `: ` + `${localStorage.getItem(key)}` + "\n";
+        }
+        let userResponse = confirm("Delete data?\n" + data);
+
+        if (userResponse){
+            localStorage.clear();
+        }else{
+            confirm("You have cookies that need to reload");
+            location.reload();
+        }
+    }
+}
+
+function deleteDataFromStorage(){
+    if (localStorage.length !== 0){
+        localStorage.clear();
+        alert("data was deleted");
+    }else{
+        alert("storage is empty");
+    }
+}
+
+function hideForm(){
+    const form = document.triangle;
+    form.style.display = "none";
 }
